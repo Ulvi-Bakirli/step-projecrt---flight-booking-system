@@ -1,7 +1,5 @@
-package Entity;
+package Entities;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -84,7 +82,7 @@ public class Flight {
             String noFLight = "Couldn`t find such a flight";
             return noFLight;
         } else {
-            return String.format("%3d || %s || %s || Kiev || %-20s || %-15s\n", id, date, time, destination, airline);
+            return String.format("%3d || %s || %s || Kiev || \t%-20s || %-15s\n", id, date, time, destination, airline);
         }
     }
 }

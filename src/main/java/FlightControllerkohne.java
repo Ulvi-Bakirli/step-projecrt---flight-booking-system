@@ -1,5 +1,4 @@
-import Entity.Flight;
-import Entity.User;
+import Entities.Flight;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -9,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class FlightController {
+public class FlightControllerkohne{
     private static final List<Flight> flights = new ArrayList<>();
 
     static {
@@ -29,16 +28,24 @@ public class FlightController {
         flights.forEach(flight -> System.out.printf("%s\n", flight));
     }
 
-    public Flight getFlightByID(int id) {
-        List<Flight> list = flights.stream()
-                .filter(flight -> flight.getId() == id)
-                .collect(Collectors.toList());
+    public Optional<Flight> getFlightByID(int id) {
 
-        if (list.size() != 0) {
-            return list.get(0);
-        } else {
-            return Flight.emptyFlight();
-        }
+
+//        List<Flight> list = flights.stream()
+//                .filter(flight -> flight.getId() == id)
+//                .collect(Collectors.toList());
+
+        //todo: id olduqda ucusu, olmadiqda empty qaytarir. bunu nezere alarsan
+        return flights.stream()
+                .filter(flight -> flight.getId() == id)
+                .findFirst();
+
+//
+//        if (list.size() != 0) {
+//            return list.get(0);
+//        } else {
+//            return Flight.emptyFlight();
+//        }
     }
 
     public List<Flight> findFlight(String dest, String date, int peopleNumber) {
