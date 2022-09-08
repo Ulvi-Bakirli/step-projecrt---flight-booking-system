@@ -42,7 +42,7 @@ public class FlightController extends FlightService {
     }
 
     public List<Flight> findFlight(String dest, String date, int peopleNumber) {
-        List<Flight> flights = null;
+        List<Flight> flights = new ArrayList<>();
 
         if (!dest.equals("") && !date.equals("") && peopleNumber != 0) {
             flights = showAllFlights().stream()
@@ -52,8 +52,7 @@ public class FlightController extends FlightService {
                     .collect(Collectors.toList());
         }
 
-        if (flights == null) {
-            flights = new ArrayList<>();
+        if (flights.size() == 0) {
             flights.add(Flight.emptyFlight());
             return flights;
         } else {

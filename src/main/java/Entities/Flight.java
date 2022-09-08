@@ -10,7 +10,7 @@ public class Flight {
     private final String time;
     private final String destination;
     private final int totatSeat;
-    private final List<User> passengers = new ArrayList<>();
+    private final List<Passenger> passengers = new ArrayList<>();
 
     private final String airline;
 
@@ -35,7 +35,7 @@ public class Flight {
         }
     }
 
-    public List<User> getPassengers() {
+    public List<Passenger> getPassengers() {
         return passengers;
     }
 
@@ -79,8 +79,7 @@ public class Flight {
     @Override
     public String toString() {
         if (id == 0) {
-            String noFLight = "Couldn`t find such a flight";
-            return noFLight;
+            return "Couldn`t find such a flight";
         } else {
             return String.format("%3d || %s || %s || Kiev || \t%-20s || %-15s\n", id, date, time, destination, airline);
         }

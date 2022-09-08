@@ -2,12 +2,12 @@ package Entities;
 
 import java.util.Objects;
 
-public class User {
+public class Passenger {
 
     private final String name;
     private final String surname;
 
-    public User(String name, String surname) {
+    public Passenger(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
@@ -24,7 +24,7 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
+        Passenger user = (Passenger) o;
         return Objects.equals(name, user.name) && Objects.equals(surname, user.surname);
     }
 
@@ -35,9 +35,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                '}';
+        return String.format("Name = %s, Surname = %s \n", name, surname);
     }
 }

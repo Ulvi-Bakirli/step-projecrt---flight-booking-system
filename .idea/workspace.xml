@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccf7f594-bd33-40ec-a469-059928200043" name="Changes" comment="bir yerden baslamali idim ve daha asan seylerden basladim">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ConsoleKohne.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/FlightController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entities/Booking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MainTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/BookingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/FlightService.java" afterDir="false" />
+    <list default="true" id="ccf7f594-bd33-40ec-a469-059928200043" name="Changes" comment="DAO hissesi yazildi ve console daha yaxsi veziyyete getirildi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BookingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Console.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Flight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FlightController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FlightControllerkohne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/FlightController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/FlightController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Flight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Passenger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/BookingService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,13 +47,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "settings.editor.selected.configurable": "inlay.hints"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -83,8 +78,9 @@
       <list>
         <item itemvalue="Application.MainTest" />
         <item itemvalue="Application.ConsoleKohne" />
+        <item itemvalue="Application.MainTest" />
         <item itemvalue="Application.ConsoleKohne" />
-        <item itemvalue="Application.ConsoleKohne" />
+        <item itemvalue="Application.MainTest" />
       </list>
     </recent_temporary>
   </component>
