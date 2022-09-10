@@ -17,7 +17,7 @@ public class ClearSpace {
                     .append(flight.getDuration()).append(" ")
                     .append(flight.getFreeSeats()).append("\n");
         }
-        FileController.writeFile(new File("src/main/java/Files/InitialFlights"), String.valueOf(sb));
+        FileController.writeFlightFile(new File("src/main/java/Files/InitialFlights"), String.valueOf(sb));
 
     }
 }

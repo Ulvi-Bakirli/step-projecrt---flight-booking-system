@@ -16,7 +16,7 @@ public class FlightController extends FlightService {
             FileController.readInitialFile("src/main/java/Files/InitialFlights")
                     .forEach(flight -> addFlight(flight));
         } else {
-            FileController.readInitialFile("src/main/java/Files/flightSaveFile")
+            FileController.readFlightFile("src/main/java/Files/flightSaveFile")
                     .forEach(flight -> addFlight(flight));
         }
     }
@@ -64,6 +64,8 @@ public class FlightController extends FlightService {
         int id = flight.getId();
         Flight flightByID = getFlightByID(id);
         getAllFlights().remove(flightByID);
-        addFlight(flight);
+//        addFlight(flight);
+
+        getAllFlights().add(id - 1, flight);
     }
 }

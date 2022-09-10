@@ -13,20 +13,31 @@ public class Flight {
     private final String date;
 
     private final String time;
-    private final int totalSeat;
+    private final int totalSeat = 150;
     private final String duration;
     private final List<Passenger> passengers = new ArrayList<>();
-    private int freeSeats = totalSeat - passengers.size();
+    private int freeSeats;
     private final String airline;
 
-    public Flight(String to, String from, String date, String time, int totalSeat, String duration, String airline) {
+    public Flight(String to, String from, String date, String time, int freeSeats, String duration, String airline) {
         id = nextID;
         nextID++;
         this.to = to;
         this.from = from;
         this.date = date;
         this.time = time;
-        this.totalSeat = totalSeat;
+        this.duration = duration;
+        this.airline = airline;
+        this.freeSeats = Math.min(freeSeats, totalSeat);
+    }
+
+    public Flight(int id, String to, String from, String date, String time, int freeSeats, String duration, String airline) {
+        this.id = id;
+        this.to = to;
+        this.from = from;
+        this.date = date;
+        this.time = time;
+        this.freeSeats = freeSeats;
         this.duration = duration;
         this.airline = airline;
     }
@@ -57,6 +68,12 @@ public class Flight {
 
     public void addPassenger(Passenger passenger){
         passengers.add(passenger);
+        freeSeats--;
+    }
+
+    public void removePassenger(Passenger passenger){
+        passengers.remove(passenger);
+        freeSeats++;
     }
 
     @Override

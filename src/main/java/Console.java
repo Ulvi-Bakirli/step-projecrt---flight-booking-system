@@ -20,7 +20,8 @@ public class Console {
     private static FlightController flightController = new FlightController();
     private static BookingController bookingController = new BookingController();
     private static Scanner scanner = new Scanner(System.in);
-    private static File flightSaveFile = new File("src/main/java/Files/flightSaveFile");
+    private static final File flightSaveFile = new File("src/main/java/Files/flightSaveFile");
+    private static final File bookingSaveFile = new File("src/main/java/Files/bookingSaveFile");
 
 
     public void run() {
@@ -72,8 +73,8 @@ public class Console {
     }
 
     public static void onlineBoard() {
-//        flightController.getAllFlights()
-//                .forEach(flight -> System.out.printf("ID = %d, from Rome to %s\n", flight.getId(), flight.getDestination()));
+        flightController.getAllFlights()
+                .forEach(flight -> System.out.printf("ID = %d, from %s to %s\n", flight.getId(), flight.getFrom(), flight.getTo()));
     }
 
     public static void showTheFlightInfo() {
@@ -89,15 +90,15 @@ public class Console {
     }
 
     public static void searchAndBookFlight() {
-        System.out.print("\nEnter destination (first capital is upper): ");
-        String dest = scanner.next();
-        System.out.print("\nEnter date which you want to fly (date format should be dd/MM/yyyy format): ");
+        System.out.print("\nEnter destination: ");
+        String dest = scanner.next().toUpperCase();
+        System.out.print("\nEnter date which you want to fly (date format should be yyyy-MM-dd format): ");
         String date = scanner.next();
         System.out.print("\nEnter number of people: ");
         int count = scanner.nextInt();
         List<Flight> flights = flightController.findFlight(dest, date, count);
 
-        if (flights.get(0).getId() == 0) {
+        if (flights.size() == 0) {
             System.out.printf("Not found for your search which destination city = %s, date = %s, number of people = %d\n", dest, date, count);
         } else {
             System.out.println(flights);
@@ -106,6 +107,15 @@ public class Console {
             if (value == 0) {
                 System.out.println();
             } else {
+
+                for (Flight flight: flights){
+                    if (value != flight.getId()){
+                        System.out.println("Not found such a flight");
+                        break;
+                    }
+                }
+
+
                 Flight flight = flightController.getFlightByID(value);
                 List<Passenger> passengerList = new ArrayList<>();
                 for (int i = 0; i < count; i++) {
@@ -122,7 +132,7 @@ public class Console {
                 }
                 bookingController.bookFlight(flightController, flight, passengerList);
                 System.out.println("Booking flight successfully completed :)");
-                System.out.println(flight.getPassengers().size());
+//                System.out.println(flight.getPassengers().size());
             }
         }
     }
@@ -148,6 +158,7 @@ public class Console {
     }
 
     public static void exit() {
-        FileController.writeFile(flightSaveFile, flightController.getAllFlights());
+        FileController.writeFlightFile(flightSaveFile, flightController.getAllFlights());
+        FileController.writeBookingFile(bookingSaveFile, bookingController.showAllBookings());
     }
 }
