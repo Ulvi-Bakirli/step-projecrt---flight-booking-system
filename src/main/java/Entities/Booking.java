@@ -1,6 +1,5 @@
 package Entities;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -8,32 +7,22 @@ public class Booking {
 
     private static int nextID = 1;
     private final int id;
-    private final List<Passenger> passengers;
+
+    private final Passenger passenger;
     private final Flight flight;
 
-    public Booking(List<Passenger> passenger, Flight flight) {
-        this.passengers = passenger;
+    public Booking(Passenger passenger, Flight flight) {
+        this.passenger = passenger;
         this.flight = flight;
         id = nextID;
         nextID++;
     }
-
-    private Booking() {
-        flight = Flight.emptyFlight();
-        id = 0;
-        passengers = new ArrayList<>();
-    }
-
-    public static Booking emptyBooking(){
-        return new Booking();
-    }
-
-    public int getId() {
+   public int getId() {
         return id;
     }
 
-    public List<Passenger> getPassengers() {
-        return passengers;
+    public Passenger getPassenger() {
+        return passenger;
     }
 
     public Flight getFlight() {
@@ -56,6 +45,6 @@ public class Booking {
     @Override
     public String toString() {
 
-        return String.format("Booking id = %d,\nPassengers: %s\nFlight: %s\n", id, passengers, flight);
+        return String.format("Booking id = %d,\nPassenger: %s\nFlight: %s\n", id, passenger, flight);
     }
 }

@@ -1,7 +1,10 @@
+import Controllers.BookingController;
+import Controllers.FileController;
 import Controllers.FlightController;
 import Entities.Flight;
 import Entities.Passenger;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,6 +20,8 @@ public class Console {
     private static FlightController flightController = new FlightController();
     private static BookingController bookingController = new BookingController();
     private static Scanner scanner = new Scanner(System.in);
+    private static File flightSaveFile = new File("src/main/java/Files/flightSaveFile");
+
 
     public void run() {
         while (true) {
@@ -51,6 +56,7 @@ public class Console {
             }
 
             if (enterValue == 6) {
+                exit();
                 break;
             }
         }
@@ -66,7 +72,8 @@ public class Console {
     }
 
     public static void onlineBoard() {
-        flightController.showAllFlights().forEach(System.out::println);
+//        flightController.getAllFlights()
+//                .forEach(flight -> System.out.printf("ID = %d, from Rome to %s\n", flight.getId(), flight.getDestination()));
     }
 
     public static void showTheFlightInfo() {
@@ -74,6 +81,7 @@ public class Console {
         int id = scanner.nextInt();
         Flight flightByID = flightController.getFlightByID(id);
         if (flightByID.getId() == 0) {
+            //todo exception kimi throw ele gorek nece olur
             System.out.print("Not found such a flight\n\n");
         } else {
             System.out.println(flightByID);
@@ -112,7 +120,7 @@ public class Console {
                     passengerList.add(passenger);
 
                 }
-                bookingController.bookFlight(flight, passengerList);
+                bookingController.bookFlight(flightController, flight, passengerList);
                 System.out.println("Booking flight successfully completed :)");
                 System.out.println(flight.getPassengers().size());
             }
@@ -137,5 +145,9 @@ public class Console {
 
     public static void myFlights() {
         bookingController.showAllBookings().forEach(System.out::println);
+    }
+
+    public static void exit() {
+        FileController.writeFile(flightSaveFile, flightController.getAllFlights());
     }
 }

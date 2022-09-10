@@ -18,23 +18,21 @@ public class BookingService implements DAO<Booking> {
 
     @Override
     public Optional<Booking> select(int id) {
-        Optional<Booking> optionalBooking = bookingDatabase.stream()
-                .filter(booking -> booking.getId() == id)
-                .findFirst();
-
-        if (optionalBooking.isEmpty()) {
-            return Optional.of(Booking.emptyBooking());
-        } else {
-            return optionalBooking;
-        }
+       return bookingDatabase.stream()
+               .filter(booking -> booking.getId() == id)
+               .findFirst();
     }
 
     @Override
     public boolean delete(int id) {
         Optional<Booking> optionalBooking = select(id);
-//        return bookingDatabase.remove(optionalBooking.get());
 
-        return optionalBooking.map(booking -> bookingDatabase.remove(booking)).orElse(false);
+        if (optionalBooking.isPresent()){
+            bookingDatabase.remove(optionalBooking.get());
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

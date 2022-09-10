@@ -14,10 +14,10 @@ public class FlightControllerkohne{
     static {
         String dateFormat = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         String timeFormat = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm"));
-        Flight flight1 = new Flight(1, dateFormat, timeFormat, "Rome", 56, "Pegasus");
-        Flight flight2 = new Flight(2, dateFormat, timeFormat, "San-Marino", 56, "Pegasus");
-        flights.add(flight1);
-        flights.add(flight2);
+//        Flight flight1 = new Flight(1, dateFormat, timeFormat, "Rome", 56, "Pegasus");
+//        Flight flight2 = new Flight(2, dateFormat, timeFormat, "San-Marino", 56, "Pegasus");
+//        flights.add(flight1);
+//        flights.add(flight2);
     }
 
     public List<Flight> getAllFlights() {
@@ -48,18 +48,18 @@ public class FlightControllerkohne{
 //        }
     }
 
-    public List<Flight> findFlight(String dest, String date, int peopleNumber) {
-        List<Flight> list = flights.stream()
-                .filter(flight -> flight.getDestination().equals(dest))
-                .filter(flight -> flight.getDate().equals(date))
-                .filter(flight -> (flight.getTotatSeat() - flight.getPassengers().size()) > peopleNumber)
-                .collect(Collectors.toList());
-
-        if (list.size() == 0) {
-            list.add(Flight.emptyFlight());
-            return list;
-        } else {
-            return list;
-        }
-    }
+//    public List<Flight> findFlight(String dest, String date, int peopleNumber) {
+//        List<Flight> list = flights.stream()
+//                .filter(flight -> flight.getDestination().equals(dest))
+//                .filter(flight -> flight.getDate().equals(date))
+//                .filter(flight -> (flight.getTotatSeat() - flight.getPassengers().size()) > peopleNumber)
+//                .collect(Collectors.toList());
+//
+//        if (list.size() == 0) {
+//            list.add(Flight.emptyFlight());
+//            return list;
+//        } else {
+//            return list;
+//        }
+//    }
 }

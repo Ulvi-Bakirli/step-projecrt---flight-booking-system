@@ -5,34 +5,30 @@ import java.util.List;
 import java.util.Objects;
 
 public class Flight {
-    private final int id;
-    private final String date;
-    private final String time;
-    private final String destination;
-    private final int totatSeat;
-    private final List<Passenger> passengers = new ArrayList<>();
 
+    public static int nextID = 1;
+    private final int id;
+    private final String to;
+    private final String from;
+    private final String date;
+
+    private final String time;
+    private final int totalSeat;
+    private final String duration;
+    private final List<Passenger> passengers = new ArrayList<>();
+    private int freeSeats = totalSeat - passengers.size();
     private final String airline;
 
-    public Flight(int id, String date, String time, String destination, int totatSeat, String airline) {
-        this.id = id;
+    public Flight(String to, String from, String date, String time, int totalSeat, String duration, String airline) {
+        id = nextID;
+        nextID++;
+        this.to = to;
+        this.from = from;
         this.date = date;
         this.time = time;
-        this.destination = destination;
-        this.totatSeat = totatSeat;
+        this.totalSeat = totalSeat;
+        this.duration = duration;
         this.airline = airline;
-    }
-
-    public static Flight emptyFlight() {
-        return new Flight(0, "", "", "", 0, "");
-    }
-
-    public boolean isEmpty() {
-        if (id == 0) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public List<Passenger> getPassengers() {
@@ -51,16 +47,16 @@ public class Flight {
         return time;
     }
 
-    public String getDestination() {
-        return destination;
-    }
-
-    public int getTotatSeat() {
-        return totatSeat;
+    public int getTotalSeat() {
+        return totalSeat;
     }
 
     public String getAirline() {
         return airline;
+    }
+
+    public void addPassenger(Passenger passenger){
+        passengers.add(passenger);
     }
 
     @Override
@@ -76,12 +72,25 @@ public class Flight {
         return Objects.hash(id);
     }
 
+    public String getTo() {
+        return to;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public int getFreeSeats() {
+        return freeSeats;
+    }
+
     @Override
     public String toString() {
-        if (id == 0) {
-            return "Couldn`t find such a flight";
-        } else {
-            return String.format("%3d || %s || %s || Kiev || \t%-20s || %-15s\n", id, date, time, destination, airline);
-        }
+            return String.format("ID: %d\t||\tfrom: %s\t||\tto: %s\t||\tdate: %s\t||\ttime: %s\t||\tduration: %s\t||\tairline: %s\t\t||\tfree seats: %d\n",
+                    id, from,to, date, time, duration, airline, freeSeats);
     }
 }
