@@ -5,6 +5,7 @@ import Services.FlightService;
 
 import java.io.File;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -25,22 +26,11 @@ public class FlightController extends FlightService {
         return super.selectAll();
     }
 
-    public Flight getFlightByID(int id) {
-//        Flight flight;
-//        Optional<Flight> optionalFlight = super.select(id);
-//        flight = optionalFlight.get();
-//        return flight;
-        Optional<Flight> optionalFlight = super.select(id);
-
-        if (optionalFlight.isPresent()) {
-            return optionalFlight.get();
-        } else {
-            try {
-                throw new Exception("Flight not found");
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
+    public Optional<Flight> getFlightByID(int id){
+        return selectAll().stream()
+                .filter(flight -> flight.getId() == id)
+                .findFirst();
+//
     }
 
     public boolean removeFlight(int id) {
@@ -62,10 +52,18 @@ public class FlightController extends FlightService {
 
     public void update(Flight flight) {
         int id = flight.getId();
-        Flight flightByID = getFlightByID(id);
-        getAllFlights().remove(flightByID);
+        Flight flightByID;
+        if (getFlightByID(id).isPresent()){
+            flightByID = getFlightByID(id).get();
+            getAllFlights().remove(flightByID);
+            getAllFlights().add(id - 1, flight);
+        } else {
+            System.out.println("Flight couldn`t be updated");
+        }
+
+
 //        addFlight(flight);
 
-        getAllFlights().add(id - 1, flight);
+
     }
 }

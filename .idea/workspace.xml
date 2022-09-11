@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccf7f594-bd33-40ec-a469-059928200043" name="Changes" comment="Fayldan oxuma ve fayldan yazma emeliyyatlari elave olundu">
+    <list default="true" id="ccf7f594-bd33-40ec-a469-059928200043" name="Changes" comment="app init olanda fayldan oxuma, app sonlananda fayla yazma, app yeniden ise dusende fayldan oxuyub qaldigi yerden davam eleme elave olundu">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Exeption/Exemption.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClearSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClearSpace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ClearSpace.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Console.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/BookingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/FileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/FlightController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/FlightController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Flight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Files/InitialFlights" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Files/InitialFlights" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FlightControllerkohne.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662769231232</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="app init olanda fayldan oxuma, app sonlananda fayla yazma, app yeniden ise dusende fayldan oxuyub qaldigi yerden davam eleme elave olundu">
+      <created>1662821593261</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1662821593261</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,6 +147,7 @@
     <MESSAGE value="bir yerden baslamali idim ve daha asan seylerden basladim" />
     <MESSAGE value="demo versiya hazirdi: booking hissesi yazildi ve proqram minimal teleblerle isleyir" />
     <MESSAGE value="Fayldan oxuma ve fayldan yazma emeliyyatlari elave olundu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fayldan oxuma ve fayldan yazma emeliyyatlari elave olundu" />
+    <MESSAGE value="app init olanda fayldan oxuma, app sonlananda fayla yazma, app yeniden ise dusende fayldan oxuyub qaldigi yerden davam eleme elave olundu" />
+    <option name="LAST_COMMIT_MESSAGE" value="app init olanda fayldan oxuma, app sonlananda fayla yazma, app yeniden ise dusende fayldan oxuyub qaldigi yerden davam eleme elave olundu" />
   </component>
 </project>

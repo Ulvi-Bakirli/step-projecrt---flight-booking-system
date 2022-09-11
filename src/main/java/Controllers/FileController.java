@@ -43,12 +43,18 @@ public class FileController {
                 int seats = Integer.parseInt(strings[5]);
 //                System.out.println(seats);
 
-                int day = Integer.parseInt(date.substring(0,2));
-                int month = Integer.parseInt(date.substring(3, 5));
-                int year = Integer.parseInt(date.substring(6));
-
-                LocalDate.of(year, month,day);
-                String parse = LocalDate.parse(date, DateTimeFormatter.ofPattern("dd/MM/yyyy")).toString();
+                String parse;
+                LocalDate localDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                int daysToMonthEnd = LocalDate.now().lengthOfMonth() - LocalDate.now().getDayOfMonth();
+                Random random1 = new Random();
+                if (localDate.isBefore(LocalDate.now())) {
+                    parse = localDate.withYear(LocalDate.now().getYear())
+                            .withMonth(LocalDate.now().getMonth().getValue())
+                            .withDayOfMonth(LocalDate.now().getDayOfMonth() + random1.nextInt(daysToMonthEnd))
+                            .format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+                } else {
+                    parse = localDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+                }
 
 
                 //todo yeni flight yarandi
