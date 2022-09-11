@@ -96,6 +96,7 @@ public class Console {
 //                .forEach(flight -> System.out.printf("ID = %d,\t||\tfrom %s to %s,\t||\tdate = %s,\t||\ttime = %s\n",
 //                        flight.getId(), flight.getFrom(), flight.getTo(), flight.getDate(), flight.getTime()));
 //
+
         //show last 24 hours flights
         flightController.getAllFlights().stream()
                 .filter(flight -> LocalDateTime.of(LocalDate.parse(flight.getDate(), DateTimeFormatter.ofPattern("dd-MM-yyyy")), LocalTime.parse(flight.getTime(), DateTimeFormatter.ofPattern("HH:mm")))
